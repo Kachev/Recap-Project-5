@@ -6,13 +6,13 @@ export default function Navbar() {
     <>
       <ul>
         <li>
-          <Link href="../ArtPieces/ArtPieces">ArtPieces</Link>
+          <Link href="../pieces">All Art Pieces</Link>
         </li>
         <li>
-          <Link href="../Spotlight">Spotlight</Link>
+          <Link href="..">Spotlight</Link>
         </li>
         <li>
-          <Link href="../pieces/">List of all Art Pieces</Link>
+          <Link href="../favorite-listing">Favorite Pieces</Link>
         </li>
       </ul>
     </>
