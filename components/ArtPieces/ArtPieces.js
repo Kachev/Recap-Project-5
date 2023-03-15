@@ -2,11 +2,13 @@ import Image from "next/image";
 import styled from "styled-components";
 import Link from "next/link";
 
+
 const StyleList = styled.li`
   list-style-type: none;
 `;
 
 export default function ArtPieces({ pieces }) {
+  
   return (
     <>
       <ul>
@@ -14,8 +16,9 @@ export default function ArtPieces({ pieces }) {
           <StyleList key={piece.slug}>
             <div>
               <Link href={`/pieces/${piece.slug}`}>
-                "{piece.name}" by {piece.artist}
+                {piece.name} by {piece.artist}
               </Link>
+             
             </div>
             <Image
               src={piece.imageSource}
