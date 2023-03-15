@@ -1,10 +1,17 @@
 import useSWR from "swr";
-import ListOfAll from "./pieces";
-import Image from "next/image";
 
-const URL = "https://example-apis.vercel.app/api/art";
+
+import Navbar from "../components/Nav-bar/nav-bar";
+
+import Spotlight from "../components/Spotlight/Spotlight";
+
+import ListOfAll from "./pieces";
+
 export default function HomePage() {
-  const { data, error, isLoading, mutate } = useSWR(URL);
+  const { data, error, isLoading, mutate } = useSWR(
+    "https://example-apis.vercel.app/api/art"
+  );
+
   if (error) {
     console.log(error);
     return <div>Something is wrong!</div>;
@@ -12,15 +19,16 @@ export default function HomePage() {
   if (isLoading) return <h1>Loading...</h1>;
   console.log(data);
 
-  function RandomImage() {}
 
+ 
   return (
     <div>
-      <header>
-        <title>Home Page</title>
-        <h1>hshd</h1>
-      </header>
-      
+      <header></header>
+      <body>
+        <h1>Art Gallery</h1>
+        <Spotlight />
+      </body>
     </div>
   );
+
 }
