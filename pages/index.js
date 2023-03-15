@@ -1,5 +1,9 @@
 import useSWR from "swr";
+
+import Navbar from "../components/Nav-bar/nav-bar";
+
 import Spotlight from "../components/Spotlight/Spotlight";
+
 import ListOfAll from "./pieces";
 
 export default function HomePage() {
@@ -12,6 +16,8 @@ export default function HomePage() {
   }
   if (isLoading) return <h1>Loading...</h1>;
   console.log(data);
+
+ 
   return (
     <div>
       <header></header>
@@ -21,4 +27,5 @@ export default function HomePage() {
       </body>
     </div>
   );
+
 }
