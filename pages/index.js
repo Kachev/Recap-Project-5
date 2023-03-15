@@ -12,8 +12,12 @@ export default function HomePage() {
   console.log(data);
   return (
     <div>
+      <header>
+        <title>Home Page</title>
+      </header>
 
-      <h1>{}</h1>
+      
     </div>
+   
   );
 }
