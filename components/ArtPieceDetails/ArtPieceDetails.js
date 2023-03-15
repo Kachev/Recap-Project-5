@@ -1,6 +1,10 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Link from "next/link";
+import { useState } from "react";
+import { uid } from "uid";
+import Comments from "../Comments/Comments";
+import CommentForm from "../CommentForm/CommentForm";
 
 const StyleList = styled.li`
   list-style-type: none;
@@ -14,7 +18,21 @@ export default function ArtPieceDetails({
   year,
   genre,
   imageSource,
+  artPiecesInfo,
 }) {
+  const [comments, setComments] = useState([]);
+  console.log(comments);
+  function handleSubmitComment(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+    const currentDate = new Date().toDateString();
+    //console.log(id);
+    const newComment = { ...data, id: uid(), time: currentDate };
+    setComments([...comments, newComment]);
+    event.target.reset();
+  }
+
   return (
     <>
       <Link href="/pieces">back</Link>
@@ -23,15 +41,8 @@ export default function ArtPieceDetails({
       <p>
         {artist} : {name}
       </p>
-      <p>Comments:</p>
-      <ul>
-        <li key="1"> "I love this piece!"(01-01-2020) </li>
-      </ul>
-      <form>
-        <legend>Add comment:</legend>
-        <input type="text"></input>
-        <button typle="submit">Send</button>
-      </form>
+      <Comments comments={comments} />
+      <CommentForm onSubmitComment={handleSubmitComment} />
     </>
   );
 }

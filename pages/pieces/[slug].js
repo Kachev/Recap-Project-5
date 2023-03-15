@@ -12,7 +12,7 @@ export default function DetailsPage({ data, onToggleFavorite, artPiecesInfo }) {
   //console.log(piece);
   return (
     <main>
-      <ArtPieceDetails {...piece} />
+      <ArtPieceDetails {...piece} artPiecesInfo={artPiecesInfo} />
       <FavoriteButton
         slug={slug}
         onToggleFavorite={onToggleFavorite}

@@ -4,7 +4,7 @@ export default function SpotlightPage({ data }) {
   console.log(data);
   const randomPiece = data[Math.floor(Math.random() * data.length)];
   return (
-    <div>
+    <>
       <header></header>
       <body>
         <h1>Art Gallery</h1>
@@ -14,6 +14,6 @@ export default function SpotlightPage({ data }) {
           slug={randomPiece.slug}
         />
       </body>
-    </div>
+    </>
   );
 }
