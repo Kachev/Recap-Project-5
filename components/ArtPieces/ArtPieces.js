@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import Link from "next/link";
+import { useState } from "react";
 
 
 const StyleList = styled.li`
@@ -9,23 +10,26 @@ const StyleList = styled.li`
 
 export default function ArtPieces({ pieces }) {
   
+  
+
+
   return (
     <>
       <ul>
         {pieces.map((piece) => (
           <StyleList key={piece.slug}>
             <div>
-              <Link href={`/pieces/${piece.slug}`}>
-                {piece.name} by {piece.artist}
-              </Link>
-             
-            </div>
-            <Image
+              <Link href={`/pieces/${piece.slug}`}><Image
               src={piece.imageSource}
               alt={piece.slug}
               width={200}
               height={200}
             />
+                
+              </Link>
+             <p>{piece.name} by {piece.artist}</p> 
+            </div>
+            
           </StyleList>
         ))}
       </ul>
