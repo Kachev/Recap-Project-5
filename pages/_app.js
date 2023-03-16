@@ -51,6 +51,7 @@ export default function App({ Component, pageProps }) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
+    console.log(data);
     const currentDate = new Date().toDateString();
     const newComment = { ...data, id: uid(), time: currentDate };
     console.log(newComment);

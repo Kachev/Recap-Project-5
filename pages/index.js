@@ -6,14 +6,13 @@ export default function SpotlightPage({ data }) {
   return (
     <>
       <header></header>
-      <body>
-        <h1>Art Gallery</h1>
-        <Spotlight
-          image={randomPiece.imageSource}
-          artist={randomPiece.artist}
-          slug={randomPiece.slug}
-        />
-      </body>
+
+      <h1>Art Gallery</h1>
+      <Spotlight
+        image={randomPiece.imageSource}
+        artist={randomPiece.artist}
+        slug={randomPiece.slug}
+      />
     </>
   );
 }
