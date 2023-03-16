@@ -8,9 +8,11 @@ export default createGlobalStyle`
   }
 
   body {
-    margin: 20px;
+    margin: 20px auto;
     font-family: system-ui;
+
   }
+  
 
   li {
     list-style: none;

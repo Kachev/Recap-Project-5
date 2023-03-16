@@ -2,7 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import Link from "next/link";
 import { useState } from "react";
-import { uid } from "uid";
+
 import Comments from "../Comments/Comments";
 import CommentForm from "../CommentForm/CommentForm";
 
@@ -15,34 +15,22 @@ export default function ArtPieceDetails({
   name,
   artist,
   slug,
-  year,
-  genre,
   imageSource,
   artPiecesInfo,
+  onSubmitComment,
 }) {
-  const [comments, setComments] = useState([]);
-  console.log(comments);
-  function handleSubmitComment(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
-    const currentDate = new Date().toDateString();
-    //console.log(id);
-    const newComment = { ...data, id: uid(), time: currentDate };
-    setComments([...comments, newComment]);
-    event.target.reset();
-  }
+  const info = artPiecesInfo.find((piece) => piece.slug === slug);
+  const artPiece = info ? info : { comments: [] };
 
   return (
     <>
       <Link href="/pieces">back</Link>
-      <Image src={imageSource} alt={slug} width={400} height={400} />
-
+      <Image priority src={imageSource} alt={slug} width={400} height={400} />
       <p>
         {artist} : {name}
       </p>
-      <Comments comments={comments} />
-      <CommentForm onSubmitComment={handleSubmitComment} />
+      <Comments artPiece={artPiece} />
+      <CommentForm onSubmitComment={onSubmitComment} slug={slug} />
     </>
   );
 }

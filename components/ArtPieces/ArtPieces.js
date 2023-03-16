@@ -7,8 +7,6 @@ export default function ArtPieces({
   artPiecesInfo,
   data,
 }) {
-  // const [favorite, setFavorite] = useState([]);
-
   return (
     <>
       <ul>

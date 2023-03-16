@@ -1,4 +1,6 @@
-export default function Comments({ comments }) {
+export default function Comments({ artPiece }) {
+  const comments = artPiece.comments;
+
   return (
     <>
       <p>Comments:</p>
@@ -6,7 +8,7 @@ export default function Comments({ comments }) {
         {comments.map((comment) => (
           <li key={comment.id}>
             <p>
-              "{comment.comment}"({comment.time})
+              {comment.comment}({comment.time})
             </p>
           </li>
         ))}

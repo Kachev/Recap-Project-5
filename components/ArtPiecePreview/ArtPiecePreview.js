@@ -6,6 +6,9 @@ import FavoriteButton from "../FavoriteButton/FavoriteButton";
 const StyleList = styled.li`
   list-style-type: none;
 `;
+const StyledImag = styled(Image)`
+  object-fit: "contain";
+`;
 
 export default function ArtPiecePreview({
   image,
@@ -20,7 +23,13 @@ export default function ArtPiecePreview({
     <StyleList key={slug}>
       <div>
         <Link href={`/pieces/${slug}`}>
-          <Image src={image} alt={slug} width={200} height={200} />
+          <StyledImag
+            priority
+            src={image}
+            alt={slug}
+            width={200}
+            height={200}
+          />
         </Link>
         <FavoriteButton
           slug={slug}

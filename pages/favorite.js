@@ -1,9 +1,14 @@
 import ArtPieces from "../components/ArtPieces/ArtPieces";
 
 export default function Favorites({ artPiecesInfo, onToggleFavorite, data }) {
-  const favoritePieces = artPiecesInfo.filter(
-    (piece) => piece.isFavorite === true
+  const favorites = artPiecesInfo.filter(
+    (favorite) => favorite.isFavorite === true
   );
+  const favoritePieces = data.filter((piece) =>
+    favorites.find((favorite) => favorite.slug === piece.slug)
+  );
+  console.log(favoritePieces);
+
   return (
     <>
       <h1>Favorites Pagge</h1>
